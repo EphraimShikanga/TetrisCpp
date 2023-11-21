@@ -1,9 +1,8 @@
 #pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "constants.hpp"
 
-const int BoardWidth = 10;
-const int BoardHeight = 20;
-const int CellSize = 30;
 
 class Board
 {
@@ -16,8 +15,8 @@ public:
             {
                 sf::RectangleShape cell(sf::Vector2f(CellSize, CellSize));
                 cell.setFillColor(sf::Color::Transparent);
-                cell.setOutlineThickness(0.5f);
-                cell.setOutlineColor(sf::Color::White);
+                cell.setOutlineThickness(0.5);
+                cell.setOutlineColor(sf::Color::Black);
                 cell.setPosition(x * CellSize, y * CellSize);
                 cells[x][y] = cell;
             }
@@ -34,7 +33,7 @@ public:
             }
         }
     }
+    sf::RectangleShape cells[BoardWidth][BoardHeight];
 
 private:
-    sf::RectangleShape cells[BoardWidth][BoardHeight];
 };
